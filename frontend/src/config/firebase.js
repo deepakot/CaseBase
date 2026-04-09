@@ -10,5 +10,9 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
+if (!firebaseConfig.apiKey) {
+  console.warn('⚠️ WARNING: Firebase config is missing. Please check your .env file.');
+}
+
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
